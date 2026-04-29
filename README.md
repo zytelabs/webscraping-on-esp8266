@@ -2,7 +2,7 @@
 
 > **Web scraping on an ESP8266/ESP32? Yes, it's possible — with [Zyte API](https://docs.zyte.com/zyte-api/get-started.html).**
 
-This project fetches live weather data from [timeanddate.com](https://www.timeanddate.com/weather/) on a **Wemos D1 Mini (ESP8266)** using the Zyte API as a scraping proxy, then displays it either on a 128×160 ST7735 TFT screen or the serial monitor — all within the ESP8266's ~22 KB of free RAM.
+This project fetches live weather data from [timeanddate.com](https://www.timeanddate.com/weather/) on a **Wemos D1 Mini (ESP8266)** using the Zyte as a scraping API, then displays it either on a 128×160 ST7735 TFT screen or the serial monitor — all within the ESP8266's ~22 KB of free RAM.
 
 ![ESP8266 weather monitor on a breadboard with ST7735 TFT display showing London weather](assets/demo.jpg)
 
@@ -38,7 +38,7 @@ Once you understand the example, the weather monitor variants extend the same pa
 
 timeanddate.com blocks requests from data-centre IP ranges and non-browser `User-Agent` strings with a `403 Forbidden`. The ESP8266 hits both conditions simultaneously.
 
-[Zyte API](https://docs.zyte.com/zyte-api/get-started.html) routes the request through a residential proxy pool and transparently spoofs browser headers, making the scrape succeed. The response body is returned as a base64-encoded string inside a JSON envelope — which this firmware stream-decodes on the fly without ever buffering the full response in RAM (see [Architecture](#architecture)).
+[Zyte API](https://docs.zyte.com/zyte-api/get-started.html) handles that and gives you back structures response. The response body is returned as a base64-encoded string inside a JSON envelope — which this firmware stream-decodes on the fly without ever buffering the full response in RAM (see [Architecture](#architecture)).
 
 ---
 
