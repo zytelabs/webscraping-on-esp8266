@@ -1,0 +1,15 @@
+# PlatformIO build artifacts
+.pio/
+
+# macOS
+.DS_Store
+
+# Credentials / environment files — never commit these
+*.env
+.env.*
+secrets.h
+config.local.h
+
+# Original full-resolution photos (keep assets/demo.jpg only)
+assets/IMG_*.jpeg
+assets/IMG_*.jpg
